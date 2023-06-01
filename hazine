@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazine Oyunu</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4">Hazine Oyunu</h1>
+    <p>Doğru şifreyi bularak hazineye ulaşabilirsiniz.</p>
+    <hr>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bilmece 1</h5>
+        <p class="card-text">Ayhan Bozkurt'un yeni kitabının adı nedir?</p>
+        <p class="card-text">İpucu: Bir yapay zeka kitabı</p>
+        <input type="text" class="form-control" id="answer-input-1">
+        <button class="btn btn-primary mt-3" onclick="checkAnswer(1)">Cevabı Kontrol Et</button>
+        <div class="mt-3" id="result-1"></div>
+      </div>
+    </div>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Bilmece 2</h5>
+        <p class="card-text">Yapay zekanın temel algoritması nedir?</p>
+        <p class="card-text">İpucu: Bir biyolojik sinir ağı taklit eden bir algoritma. Anahtar kelime: Sinir Ağları</p>
+        <input type="text" class="form-control" id="answer-input-2">
+        <button class="btn btn-primary mt-3" onclick="checkAnswer(2)">Cevabı Kontrol Et</button>
+        <div class="mt-3" id="result-2"></div>
+      </div>
+    </div>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Bilmece 3</h5>
+        <p class="card-text">Bir bilgisayar programının veri analizi yapabilmesi için kullanılan dil nedir?</p>
+        <p class="card-text">İpucu: Bir yılan türü. İngilizce adını yaz</p>
+        <input type="text" class="form-control" id="answer-input-3">
+        <button class="btn btn-primary mt-3" onclick="checkAnswer(3)">Cevabı Kontrol Et</button>
+        <div class="mt-3" id="result-3"></div>
+      </div>
+    </div>
+    <div class="card mt-4" id="sifreler" style="display: none;">
+      <div class="card-body">
+        <h5 class="card-title">Şifreleri Girin</h5>
+        <div class="form-group">
+          <label for="sifre1">Şifre 1:</label>
+          <input type="text" class="form-control" id="sifre1">
+        </div>
+        <div class="form-group">
+          <label for="sifre2">Şifre 2:</label>
+          <input type="text" class="form-control" id="sifre2">
+        </div>
+        <div class="form-group">
+          <label for="sifre3">Şifre 3:</label>
+          <input type="text" class="form-control" id="sifre3">
+        </div>
+        <button class="btn btn-primary mt-3" onclick="checkPasswords()">Şifreleri Kontrol Et</button>
+        <div class="mt-3" id="result-password"></div>
+        <button class="btn btn-success mt-3" id="hazineye-git" style="display: none;" onclick="goToHazine()">Hazineye Git</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    function checkAnswer(questionNumber) {
+      var answerInput = document.getElementById('answer-input-' + questionNumber);
+      var resultDiv = document.getElementById('result-' + questionNumber);
+
+      if (questionNumber === 1) {
+        if (answerInput.value.toLowerCase() === 'yapay zeka ile sohbetler') {
+          resultDiv.innerHTML = "<span class='text-success'>Tebrikler! Şifre 1: Siyah</span>";
+        } else {
+          resultDiv.innerHTML = "<span class='text-danger'>Yanlış cevap! Tekrar deneyin.</span>";
+        }
+      } else if (questionNumber === 2) {
+        if (answerInput.value.toLowerCase() === 'yapay sinir ağları') {
+          resultDiv.innerHTML = "<span class='text-success'>Tebrikler! Şifre 2: Beyaz</span>";
+        } else {
+          resultDiv.innerHTML = "<span class='text-danger'>Yanlış cevap! Tekrar deneyin.</span>";
+        }
+      } else if (questionNumber === 3) {
+        if (answerInput.value.toLowerCase() === 'python') {
+          resultDiv.innerHTML = "<span class='text-success'>Tebrikler! Şifre 3: Şampiyon Beşiktaş</span>";
+          document.getElementById("sifreler").style.display = "block";
+        } else {
+          resultDiv.innerHTML = "<span class='text-danger'>Yanlış cevap! Tekrar deneyin.</span>";
+        }
+      }
+    }
+
+    function checkPasswords() {
+      var sifre1 = document.getElementById("sifre1").value.toLowerCase();
+      var sifre2 = document.getElementById("sifre2").value.toLowerCase();
+      var sifre3 = document.getElementById("sifre3").value.toLowerCase();
+      var resultPassword = document.getElementById("result-password");
+      var hazineyeGit = document.getElementById("hazineye-git");
+
+      if (sifre1 === "siyah" && sifre2 === "beyaz" && sifre3 === "şampiyon beşiktaş") {
+        resultPassword.innerHTML = "<span class='text-success'>Şifreler doğru! Hazineye Git butonuna tıklayarak hazineye ulaşabilirsiniz!</span>";
+        hazineyeGit.style.display = "block";
+      } else {
+        resultPassword.innerHTML = "<span class='text-danger'>Şifreler yanlış! Lütfen şifreleri kontrol edin ve tekrar deneyin.</span>";
+        hazineyeGit.style.display = "none";
+      }
+    }
+
+    function goToHazine() {
+      window.location.href = "<pdf_linki>";
+    }
+  </script>
+</body>
+</html>
