@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +16,8 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Bilmece 1</h5>
-        <p class="card-text">Ayhan Bozkurt'un yeni kitabının adı nedir?</p>
-        <p class="card-text">İpucu: Bir yapay zeka kitabı</p>
+        <p class="card-text">İçi dolu, dışı boş. Her şeyi biliyor, tek başına hoş. Ne bu?</p>
+        <p class="card-text">İpucu: Sayfaları var çevirirsin</p>
         <input type="text" class="form-control" id="answer-input-1">
         <button class="btn btn-primary mt-3" onclick="checkAnswer(1)">Cevabı Kontrol Et</button>
         <div class="mt-3" id="result-1"></div>
@@ -25,8 +26,8 @@
     <div class="card mt-4">
       <div class="card-body">
         <h5 class="card-title">Bilmece 2</h5>
-        <p class="card-text">Yapay zekanın temel algoritması nedir?</p>
-        <p class="card-text">İpucu: Bir biyolojik sinir ağı taklit eden bir algoritma. Anahtar kelime: Sinir Ağları</p>
+        <p class="card-text">Kışın sıcak yazın serin, içinde binlerce dünya ve kahraman var, kapılarından girildiğinde herkes bilgiye doyar. Ne bu?</p>
+        <p class="card-text">İpucu: Bina. Anahtar kelimeler: Bilginin merkezi</p>
         <input type="text" class="form-control" id="answer-input-2">
         <button class="btn btn-primary mt-3" onclick="checkAnswer(2)">Cevabı Kontrol Et</button>
         <div class="mt-3" id="result-2"></div>
@@ -35,8 +36,8 @@
     <div class="card mt-4">
       <div class="card-body">
         <h5 class="card-title">Bilmece 3</h5>
-        <p class="card-text">Bir bilgisayar programının veri analizi yapabilmesi için kullanılan dil nedir?</p>
-        <p class="card-text">İpucu: Bir yılan türü. İngilizce adını yaz</p>
+        <p class="card-text">Bilginin merkezi, kitapların evi. Ankara'nın incisi ve Türkiye'nin en büyüğü. Ne bu?</p>
+        <p class="card-text">İpucu: Bir bina. </p>
         <input type="text" class="form-control" id="answer-input-3">
         <button class="btn btn-primary mt-3" onclick="checkAnswer(3)">Cevabı Kontrol Et</button>
         <div class="mt-3" id="result-3"></div>
@@ -70,19 +71,19 @@
       var resultDiv = document.getElementById('result-' + questionNumber);
 
       if (questionNumber === 1) {
-        if (answerInput.value.toLowerCase() === 'yapay zeka ile sohbetler') {
+        if (answerInput.value.toLowerCase() === 'kitap') {
           resultDiv.innerHTML = "<span class='text-success'>Tebrikler! Şifre 1: Siyah</span>";
         } else {
           resultDiv.innerHTML = "<span class='text-danger'>Yanlış cevap! Tekrar deneyin.</span>";
         }
       } else if (questionNumber === 2) {
-        if (answerInput.value.toLowerCase() === 'yapay sinir ağları') {
+        if (answerInput.value.toLowerCase() === 'kütüphane') {
           resultDiv.innerHTML = "<span class='text-success'>Tebrikler! Şifre 2: Beyaz</span>";
         } else {
           resultDiv.innerHTML = "<span class='text-danger'>Yanlış cevap! Tekrar deneyin.</span>";
         }
       } else if (questionNumber === 3) {
-        if (answerInput.value.toLowerCase() === 'python') {
+        if (answerInput.value.toLowerCase() === 'cumhurbaşkanlığı millet kütüphanesi') {
           resultDiv.innerHTML = "<span class='text-success'>Tebrikler! Şifre 3: Şampiyon Beşiktaş</span>";
           document.getElementById("sifreler").style.display = "block";
         } else {
@@ -108,7 +109,7 @@
     }
 
     function goToHazine() {
-      window.location.href = "<pdf_linki>";
+      window.location.href = "<https://drive.google.com/file/d/1wanxGgq6bXXbT2pPDZkCBzkGiN3DlhVC/view?usp=sharing>";
     }
   </script>
 </body>
